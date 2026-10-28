@@ -1,0 +1,5 @@
+    The  script in th exercise folder creates a 2-million-row rental table.
+    para cada select das sessoes 6 e 7 nos tutoriais:
+    -explicar o que a query faz
+    -que indice é que as tabelas devem ter para que a consulta seja optimizada
+    -caso a cricao de index nao melhore a condicao da consulta, explicar porque

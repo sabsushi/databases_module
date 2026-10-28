@@ -24,7 +24,7 @@ CREATE TABLE staff (
 CREATE TABLE shift (
     shift_id integer primary key,
     main_unit_id integer not null references main_unit,
-    staff_id integer not null references staff,
+    staff_id integer not null references staff, --
     shift_date date not null
 );
 
@@ -40,7 +40,7 @@ CREATE TABLE patient_case (
 
 CREATE TABLE episode (
     episode_id integer primary key,
-    case_id integer not null references patient_case,
+    case_id integer not null references patient_case, 
     main_unit_id integer not null references main_unit
 );
 

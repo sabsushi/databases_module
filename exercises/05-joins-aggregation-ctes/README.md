@@ -1,0 +1,1 @@
+![mermaid table]({BBABC95F-2C11-4EC9-A7A9-20F0B566060F}.png)

@@ -31,5 +31,5 @@ erDiagram
 
 ## 3. Denormalisation
 
-I store `due_date` in `loan` even though it can be calculated.
+I store due_date in loan even though it can be calculated.
 Reason: if the loan period changes later, old loans keep their original due date.

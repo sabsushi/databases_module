@@ -6,7 +6,7 @@ The 10 queries are in `queries.sql`, run on a fresh copy of Pagila (`ex05`). No 
 
 ```bash
 bash scripts/create-db.sh ex05 --pagila --reset
-docker compose exec -T postgres psql -U postgres -d ex05 -v ON_ERROR_STOP=1 < exercises/05-joins-aggregation-ctes/exercise/queries.sql
+docker compose exec -T postgres psql -U postgres -d ex05 -v ON_ERROR_STOP=1 < exercises/05-queries/exercise/queries.sql
 ```
 
 ## Results

@@ -6,8 +6,8 @@ Municipal library schema in PostgreSQL (`schema.sql`) and five statements that m
 
 ```powershell
 docker compose exec -T postgres createdb -U postgres ex03
-Get-Content exercises/03-ddl-constraints/schema.sql | docker compose exec -T postgres psql -U postgres -d ex03 -v ON_ERROR_STOP=1
-Get-Content exercises/03-ddl-constraints/invalid.sql | docker compose exec -T postgres psql -U postgres -d ex03
+Get-Content exercises/03-ddl/exercise/schema.sql | docker compose exec -T postgres psql -U postgres -d ex03 -v ON_ERROR_STOP=1
+Get-Content exercises/03-ddl/exercise/invalid.sql | docker compose exec -T postgres psql -U postgres -d ex03
 ```
 
 ## Output of `invalid.sql`

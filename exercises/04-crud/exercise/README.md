@@ -6,7 +6,7 @@ All 12 operations are in `queries.sql`, run on a fresh copy of Pagila (`ex04`).
 
 ```bash
 bash scripts/create-db.sh ex04 --pagila --reset
-docker compose exec -T postgres psql -U postgres -d ex04 -v ON_ERROR_STOP=1 < exercises/04-crud-bulk-data/exercise/queries.sql
+docker compose exec -T postgres psql -U postgres -d ex04 -v ON_ERROR_STOP=1 < exercises/04-crud/exercise/queries.sql
 ```
 
 ## Results

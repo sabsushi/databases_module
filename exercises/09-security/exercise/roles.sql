@@ -1,0 +1,24 @@
+SELECT format('CREATE ROLE ex09_migrations LOGIN PASSWORD %L', :'migrations_password')
+WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'ex09_migrations') \gexec
+SELECT format('CREATE ROLE ex09_app LOGIN PASSWORD %L', :'app_password')
+WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'ex09_app') \gexec
+SELECT format('CREATE ROLE ex09_readonly LOGIN PASSWORD %L', :'readonly_password')
+WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'ex09_readonly') \gexec
+
+ALTER DATABASE ex09 OWNER TO ex09_migrations;
+GRANT USAGE, CREATE ON SCHEMA public TO ex09_migrations;
+
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+GRANT USAGE ON SCHEMA public TO ex09_app, ex09_readonly;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO ex09_app;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA public TO ex09_app;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO ex09_readonly;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE ex09_migrations IN SCHEMA public
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO ex09_app;
+ALTER DEFAULT PRIVILEGES FOR ROLE ex09_migrations IN SCHEMA public
+    GRANT USAGE ON SEQUENCES TO ex09_app;
+ALTER DEFAULT PRIVILEGES FOR ROLE ex09_migrations IN SCHEMA public
+    GRANT SELECT ON TABLES TO ex09_readonly;
